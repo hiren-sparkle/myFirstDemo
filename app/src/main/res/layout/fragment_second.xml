@@ -1,0 +1,991 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.sparkle.countrypicker.SecondFragment">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="16dp"
+        android:paddingTop="16dp">
+
+        <RelativeLayout
+            android:id="@+id/rl_edit_phone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:id="@+id/rl_phone_header"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#e0e0e0">
+
+                <ImageButton
+                    android:id="@+id/indicator_phone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:background="@android:color/transparent"
+                    android:padding="8dp"
+                    android:clickable="false"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_arrow" />
+
+                <TextView
+                    android:id="@+id/tv_edit_phone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toLeftOf="@+id/btn_add_phone"
+                    android:layout_toRightOf="@+id/indicator_phone"
+                    android:text="Phone Number"
+                    android:clickable="false"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <ImageButton
+                    android:id="@+id/btn_add_phone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toLeftOf="@+id/btn_save_phone"
+                    android:background="@android:color/transparent"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    android:padding="8dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_add" />
+
+                <Button
+                    android:id="@+id/btn_save_phone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:background="@android:color/transparent"
+                    android:text="Save"
+                    android:textAllCaps="false"
+                    android:textColor="@color/colorPrimary"
+                    android:textStyle="bold" />
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_phone_editor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/rl_phone_header"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:background="#f5f5f5"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:id="@+id/tv_index_phone"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_alignBottom="@+id/et_phone_number"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginRight="16dp"
+                        android:background="#e0e0e0"
+                        android:gravity="center"
+                        android:padding="8dp"
+                        android:text="1"
+                        android:textSize="12sp" />
+
+                    <EditText
+                        android:id="@+id/et_label_phone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_toLeftOf="@+id/cancel_phone"
+                        android:layout_toRightOf="@+id/tv_index_phone"
+                        android:background="@android:color/transparent"
+                        android:hint="Add label"
+                        android:inputType="text"
+                        android:maxLines="1"
+                        android:paddingBottom="4dp"
+                        android:textSize="12sp" />
+
+                    <View
+                        android:id="@+id/divider_phone_label"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_below="@+id/et_label_phone"
+                        android:layout_marginBottom="8dp"
+                        android:layout_toLeftOf="@+id/cancel_phone"
+                        android:layout_toRightOf="@+id/tv_index_phone"
+                        android:background="#808080" />
+
+                    <RelativeLayout
+                        android:id="@+id/rl_country_code"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBottom="@+id/et_phone_number"
+                        android:layout_below="@+id/divider_phone_label"
+                        android:layout_marginRight="16dp"
+                        android:layout_toRightOf="@+id/tv_index_phone">
+
+                        <ImageButton
+                            android:id="@+id/btn_drop_down"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_above="@+id/divider_view"
+                            android:layout_centerVertical="true"
+                            android:background="@android:color/transparent"
+                            android:scaleType="fitCenter"
+                            android:src="@drawable/ic_drop_down" />
+
+                        <ImageView
+                            android:id="@+id/img_flag_country"
+                            android:layout_width="wrap_content"
+                            android:layout_height="16dp"
+                            android:layout_above="@+id/divider_view"
+                            android:layout_centerVertical="true"
+                            android:layout_toRightOf="@+id/btn_drop_down"
+                            android:scaleType="fitCenter"
+                            android:src="@drawable/flag_india" />
+
+                        <TextView
+                            android:id="@+id/tv_country_code"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_above="@+id/divider_view"
+                            android:layout_centerVertical="true"
+                            android:layout_toRightOf="@+id/img_flag_country"
+                            android:text="+91"
+                            android:textSize="12sp" />
+
+                        <View
+                            android:id="@+id/divider_view"
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_alignParentBottom="true"
+                            android:layout_alignRight="@+id/tv_country_code"
+                            android:layout_marginTop="8dp"
+                            android:background="#808080" />
+                    </RelativeLayout>
+
+                    <EditText
+                        android:id="@+id/et_phone_number"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/divider_phone_label"
+                        android:layout_toLeftOf="@+id/cancel_phone"
+                        android:layout_toRightOf="@+id/rl_country_code"
+                        android:background="@android:color/transparent"
+                        android:hint="Phone Number"
+                        android:inputType="phone"
+                        android:paddingBottom="8dp"
+                        android:textSize="12sp" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_below="@+id/et_phone_number"
+                        android:layout_toLeftOf="@+id/cancel_phone"
+                        android:layout_toRightOf="@+id/rl_country_code"
+                        android:background="#808080" />
+
+                    <ImageButton
+                        android:id="@+id/cancel_phone"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_alignBottom="@+id/et_phone_number"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginLeft="8dp"
+                        android:padding="16dp"
+                        android:visibility="invisible"
+                        android:background="@android:color/transparent"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/ic_cancel" />
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_edit_whatsapp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/rl_edit_phone"
+            android:layout_marginTop="16dp">
+
+            <RelativeLayout
+                android:id="@+id/rl_whatsapp_header"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:background="#e0e0e0">
+
+                <ImageButton
+                    android:id="@+id/indicator_whatsapp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:background="@android:color/transparent"
+                    android:padding="8dp"
+                    android:clickable="false"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_arrow" />
+
+                <TextView
+                    android:id="@+id/tv_edit_whatsapp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toLeftOf="@+id/btn_add_whatsapp"
+                    android:layout_toRightOf="@+id/indicator_whatsapp"
+                    android:text="Whatsapp"
+                    android:clickable="false"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <ImageButton
+                    android:id="@+id/btn_add_whatsapp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toLeftOf="@+id/btn_save_whatsapp"
+                    android:background="@android:color/transparent"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    android:padding="8dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_add" />
+
+                <Button
+                    android:id="@+id/btn_save_whatsapp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:background="@android:color/transparent"
+                    android:text="Save"
+                    android:textAllCaps="false"
+                    android:textColor="@color/colorPrimary"
+                    android:textStyle="bold" />
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_whatsapp_editor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/rl_whatsapp_header"
+                android:orientation="vertical"
+                android:visibility="visible">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:background="#f5f5f5"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:id="@+id/tv_index_whatsapp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_alignBottom="@+id/et_phone_number_whatsapp"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginRight="16dp"
+                        android:background="#e0e0e0"
+                        android:gravity="center"
+                        android:paddingLeft="8dp"
+                        android:paddingRight="8dp"
+                        android:text="1"
+                        android:textSize="12sp" />
+
+                    <RelativeLayout
+                        android:id="@+id/rl_country_code_whatsapp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBottom="@+id/divider_whatsapp_phone"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginRight="16dp"
+                        android:layout_toRightOf="@+id/tv_index_whatsapp">
+
+                        <ImageButton
+                            android:id="@+id/btn_drop_down_whatsapp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_above="@+id/divider_view_whatsapp"
+                            android:background="@android:color/transparent"
+                            android:scaleType="fitCenter"
+                            android:src="@drawable/ic_drop_down" />
+
+                        <ImageView
+                            android:id="@+id/img_flag_country_whatsapp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="16dp"
+                            android:layout_above="@+id/divider_view_whatsapp"
+                            android:layout_toRightOf="@+id/btn_drop_down_whatsapp"
+                            android:scaleType="fitCenter"
+                            android:src="@drawable/flag_india" />
+
+                        <TextView
+                            android:id="@+id/tv_country_code_whatsapp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_above="@+id/divider_view_whatsapp"
+                            android:layout_toRightOf="@+id/img_flag_country_whatsapp"
+                            android:text="+91"
+                            android:textSize="12sp" />
+
+                        <View
+                            android:id="@+id/divider_view_whatsapp"
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_alignParentBottom="true"
+                            android:layout_alignRight="@+id/tv_country_code_whatsapp"
+                            android:layout_marginTop="8dp"
+                            android:background="#808080" />
+                    </RelativeLayout>
+
+                    <EditText
+                        android:id="@+id/et_phone_number_whatsapp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_toLeftOf="@+id/cancel_whatsapp"
+                        android:layout_toRightOf="@+id/rl_country_code_whatsapp"
+                        android:background="@android:color/transparent"
+                        android:hint="Phone Number"
+                        android:inputType="phone"
+                        android:paddingBottom="8dp"
+                        android:textSize="12sp" />
+
+                    <View
+                        android:id="@+id/divider_whatsapp_phone"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_below="@+id/et_phone_number_whatsapp"
+                        android:layout_toLeftOf="@+id/cancel_whatsapp"
+                        android:layout_toRightOf="@+id/rl_country_code_whatsapp"
+                        android:background="#808080" />
+
+                    <ImageButton
+                        android:id="@+id/cancel_whatsapp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_alignBottom="@+id/et_phone_number_whatsapp"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginLeft="8dp"
+                        android:paddingLeft="16dp"
+                        android:visibility="invisible"
+                        android:paddingRight="16dp"
+                        android:background="@android:color/transparent"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/ic_cancel" />
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_edit_viber"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/rl_edit_whatsapp"
+            android:layout_marginTop="16dp">
+
+            <RelativeLayout
+                android:id="@+id/rl_viber_header"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:background="#e0e0e0">
+
+                <ImageButton
+                    android:id="@+id/indicator_viber"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:background="@android:color/transparent"
+                    android:padding="8dp"
+                    android:clickable="false"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_arrow" />
+
+                <TextView
+                    android:id="@+id/tv_edit_viber"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toLeftOf="@+id/btn_add_viber"
+                    android:layout_toRightOf="@+id/indicator_viber"
+                    android:text="Viber"
+                    android:clickable="false"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <ImageButton
+                    android:id="@+id/btn_add_viber"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toLeftOf="@+id/btn_save_viber"
+                    android:background="@android:color/transparent"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    android:padding="8dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_add" />
+
+                <Button
+                    android:id="@+id/btn_save_viber"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:background="@android:color/transparent"
+                    android:text="Save"
+                    android:textAllCaps="false"
+                    android:textColor="@color/colorPrimary"
+                    android:textStyle="bold" />
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_viber_editor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/rl_viber_header"
+                android:orientation="vertical"
+                android:visibility="visible">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:background="#f5f5f5"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:id="@+id/tv_index_viber"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_alignBottom="@+id/et_phone_number_viber"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginRight="16dp"
+                        android:background="#e0e0e0"
+                        android:gravity="center"
+                        android:paddingLeft="8dp"
+                        android:paddingRight="8dp"
+                        android:text="1"
+                        android:textSize="12sp" />
+
+                    <RelativeLayout
+                        android:id="@+id/rl_country_code_viber"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBottom="@+id/divider_viber_phone"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginRight="16dp"
+                        android:layout_toRightOf="@+id/tv_index_viber">
+
+                        <ImageButton
+                            android:id="@+id/btn_drop_down_viber"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_above="@+id/divider_view_viber"
+                            android:background="@android:color/transparent"
+                            android:scaleType="fitCenter"
+                            android:src="@drawable/ic_drop_down" />
+
+                        <ImageView
+                            android:id="@+id/img_flag_country_viber"
+                            android:layout_width="wrap_content"
+                            android:layout_height="16dp"
+                            android:layout_above="@+id/divider_view_viber"
+                            android:layout_toRightOf="@+id/btn_drop_down_viber"
+                            android:scaleType="fitCenter"
+                            android:src="@drawable/flag_india" />
+
+                        <TextView
+                            android:id="@+id/tv_country_code_viber"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_above="@+id/divider_view_viber"
+                            android:layout_toRightOf="@+id/img_flag_country_viber"
+                            android:text="+91"
+                            android:textSize="12sp" />
+
+                        <View
+                            android:id="@+id/divider_view_viber"
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_alignParentBottom="true"
+                            android:layout_alignRight="@+id/tv_country_code_viber"
+                            android:layout_marginTop="8dp"
+                            android:background="#808080" />
+                    </RelativeLayout>
+
+                    <EditText
+                        android:id="@+id/et_phone_number_viber"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_toLeftOf="@+id/cancel_viber"
+                        android:layout_toRightOf="@+id/rl_country_code_viber"
+                        android:background="@android:color/transparent"
+                        android:hint="Phone Number"
+                        android:inputType="phone"
+                        android:paddingBottom="8dp"
+                        android:textSize="12sp" />
+
+                    <View
+                        android:id="@+id/divider_viber_phone"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_below="@+id/et_phone_number_viber"
+                        android:layout_toLeftOf="@+id/cancel_viber"
+                        android:layout_toRightOf="@+id/rl_country_code_viber"
+                        android:background="#808080" />
+
+                    <ImageButton
+                        android:id="@+id/cancel_viber"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_alignBottom="@+id/et_phone_number_viber"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginLeft="24dp"
+                        android:layout_marginRight="16dp"
+                        android:visibility="invisible"
+                        android:background="@android:color/transparent"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/ic_cancel" />
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_edit_website"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/rl_edit_viber"
+            android:layout_marginTop="16dp">
+
+            <RelativeLayout
+                android:id="@+id/rl_website_header"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:background="#e0e0e0">
+
+                <ImageButton
+                    android:id="@+id/indicator_website"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:background="@android:color/transparent"
+                    android:padding="8dp"
+                    android:clickable="false"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_arrow" />
+
+                <TextView
+                    android:id="@+id/tv_edit_website"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toLeftOf="@+id/btn_add_website"
+                    android:layout_toRightOf="@+id/indicator_website"
+                    android:text="Website"
+                    android:clickable="false"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <ImageButton
+                    android:id="@+id/btn_add_website"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toLeftOf="@+id/btn_save_website"
+                    android:background="@android:color/transparent"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    android:padding="8dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_add" />
+
+                <Button
+                    android:id="@+id/btn_save_website"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:background="@android:color/transparent"
+                    android:text="Save"
+                    android:textAllCaps="false"
+                    android:textColor="@color/colorPrimary"
+                    android:textStyle="bold" />
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_website_editor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/rl_website_header"
+                android:orientation="vertical"
+                android:visibility="visible">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:background="#f5f5f5"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:id="@+id/tv_index_website"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_alignBottom="@+id/et_website"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginRight="16dp"
+                        android:background="#e0e0e0"
+                        android:gravity="center"
+                        android:paddingLeft="8dp"
+                        android:paddingRight="8dp"
+                        android:text="1"
+                        android:textSize="12sp" />
+
+
+                    <EditText
+                        android:id="@+id/et_website"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_toLeftOf="@+id/cancel_website"
+                        android:layout_toRightOf="@+id/tv_index_website"
+                        android:background="@android:color/transparent"
+                        android:hint="Web URL"
+                        android:inputType="text"
+                        android:maxLines="1"
+                        android:paddingBottom="8dp"
+                        android:textSize="12sp" />
+
+                    <View
+                        android:id="@+id/divider_website"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_below="@+id/et_website"
+                        android:layout_toLeftOf="@+id/cancel_website"
+                        android:layout_toRightOf="@+id/tv_index_website"
+                        android:background="#808080" />
+
+                    <ImageButton
+                        android:id="@+id/cancel_website"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_alignBottom="@+id/et_website"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginLeft="24dp"
+                        android:layout_marginRight="16dp"
+                        android:visibility="invisible"
+                        android:background="@android:color/transparent"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/ic_cancel" />
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_edit_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/rl_edit_website"
+            android:layout_marginTop="16dp">
+
+            <RelativeLayout
+                android:id="@+id/rl_email_header"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#e0e0e0">
+
+                <ImageButton
+                    android:id="@+id/indicator_email"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:background="@android:color/transparent"
+                    android:padding="8dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_arrow" />
+
+                <TextView
+                    android:id="@+id/tv_edit_email"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toLeftOf="@+id/btn_add_email"
+                    android:layout_toRightOf="@+id/indicator_email"
+                    android:text="Email"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <ImageButton
+                    android:id="@+id/btn_add_email"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toLeftOf="@+id/btn_save_email"
+                    android:background="@android:color/transparent"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    android:padding="8dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_add" />
+
+                <Button
+                    android:id="@+id/btn_save_email"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:background="@android:color/transparent"
+                    android:text="Save"
+                    android:textAllCaps="false"
+                    android:textColor="@color/colorPrimary"
+                    android:textStyle="bold" />
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_email_editor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/rl_email_header"
+                android:orientation="vertical"
+                android:visibility="visible">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:background="#f5f5f5"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:id="@+id/tv_index_email"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_alignBottom="@+id/et_email"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginRight="16dp"
+                        android:background="#e0e0e0"
+                        android:gravity="center"
+                        android:paddingLeft="8dp"
+                        android:paddingRight="8dp"
+                        android:text="1"
+                        android:textSize="12sp" />
+
+
+                    <EditText
+                        android:id="@+id/et_email"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_toLeftOf="@+id/cancel_email"
+                        android:layout_toRightOf="@+id/tv_index_email"
+                        android:background="@android:color/transparent"
+                        android:hint="Email"
+                        android:inputType="textEmailAddress"
+                        android:maxLines="1"
+                        android:paddingBottom="8dp"
+                        android:textSize="12sp" />
+
+                    <View
+                        android:id="@+id/divider_email"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_below="@+id/et_email"
+                        android:layout_toLeftOf="@+id/cancel_email"
+                        android:layout_toRightOf="@+id/tv_index_email"
+                        android:background="#808080" />
+
+                    <ImageButton
+                        android:id="@+id/cancel_email"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_alignBottom="@+id/et_email"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginLeft="24dp"
+                        android:layout_marginRight="16dp"
+                        android:visibility="invisible"
+                        android:background="@android:color/transparent"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/ic_cancel" />
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_edit_social"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/rl_edit_email"
+            android:layout_marginTop="16dp">
+
+            <RelativeLayout
+                android:id="@+id/rl_social_header"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#e0e0e0">
+
+                <ImageButton
+                    android:id="@+id/indicator_social"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:background="@android:color/transparent"
+                    android:padding="8dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_arrow" />
+
+                <TextView
+                    android:id="@+id/tv_edit_social"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toLeftOf="@+id/btn_add_social"
+                    android:layout_toRightOf="@+id/indicator_social"
+                    android:text="Social"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <ImageButton
+                    android:id="@+id/btn_add_social"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toLeftOf="@+id/btn_save_social"
+                    android:background="@android:color/transparent"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    android:padding="8dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_add" />
+
+                <Button
+                    android:id="@+id/btn_save_social"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:background="@android:color/transparent"
+                    android:text="Save"
+                    android:textAllCaps="false"
+                    android:textColor="@color/colorPrimary"
+                    android:textStyle="bold" />
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_social_editor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/rl_social_header"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:background="#f5f5f5"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:id="@+id/tv_index_social"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_alignBottom="@+id/et_social"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginRight="16dp"
+                        android:background="#e0e0e0"
+                        android:gravity="center"
+                        android:paddingLeft="8dp"
+                        android:paddingRight="8dp"
+                        android:text="1"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/tv_social_select"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="16dp"
+                        android:layout_toRightOf="@+id/tv_index_social"
+                        android:paddingBottom="8dp"
+                        android:paddingRight="8dp"
+                        android:text="Facebook"
+                        android:textSize="12sp" />
+
+                    <View
+                        android:id="@+id/divider_social_select"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_alignRight="@+id/tv_social_select"
+                        android:layout_below="@+id/tv_social_select"
+                        android:layout_toRightOf="@+id/tv_index_social"
+                        android:background="#808080" />
+
+
+                    <EditText
+                        android:id="@+id/et_social"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_toLeftOf="@+id/cancel_social"
+                        android:layout_toRightOf="@+id/tv_social_select"
+                        android:background="@android:color/transparent"
+                        android:hint="Social page URL"
+                        android:inputType="textEmailAddress"
+                        android:maxLines="1"
+                        android:paddingBottom="8dp"
+                        android:textSize="12sp" />
+
+                    <View
+                        android:id="@+id/divider_social"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_below="@+id/et_social"
+                        android:layout_toLeftOf="@+id/cancel_social"
+                        android:layout_toRightOf="@+id/tv_social_select"
+                        android:background="#808080" />
+
+                    <ImageButton
+                        android:id="@+id/cancel_social"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_alignBottom="@+id/et_social"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginLeft="24dp"
+                        android:visibility="invisible"
+                        android:layout_marginRight="16dp"
+                        android:background="@android:color/transparent"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/ic_cancel" />
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+</ScrollView>

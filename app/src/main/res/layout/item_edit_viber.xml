@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="16dp"
+    android:background="#f5f5f5"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/tv_index_viber"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignBottom="@+id/et_phone_number_viber"
+        android:layout_alignParentTop="true"
+        android:layout_marginRight="16dp"
+        android:background="#e0e0e0"
+        android:gravity="center"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
+        android:text="1"
+        android:textSize="12sp" />
+
+    <RelativeLayout
+        android:id="@+id/rl_country_code_viber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/divider_viber_phone"
+        android:layout_alignParentTop="true"
+        android:layout_marginRight="16dp"
+        android:layout_toRightOf="@+id/tv_index_viber">
+
+        <ImageButton
+            android:id="@+id/btn_drop_down_viber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/divider_view_viber"
+            android:background="@android:color/transparent"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_drop_down" />
+
+        <ImageView
+            android:id="@+id/img_flag_country_viber"
+            android:layout_width="wrap_content"
+            android:layout_height="16dp"
+            android:layout_above="@+id/divider_view_viber"
+            android:layout_toRightOf="@+id/btn_drop_down_viber"
+            android:scaleType="fitCenter"
+            android:src="@drawable/flag_india" />
+
+        <TextView
+            android:id="@+id/tv_country_code_viber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/divider_view_viber"
+            android:layout_toRightOf="@+id/img_flag_country_viber"
+            android:text="+91"
+            android:textSize="12sp" />
+
+        <View
+            android:id="@+id/divider_view_viber"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignRight="@+id/tv_country_code_viber"
+            android:layout_marginTop="8dp"
+            android:background="#808080" />
+    </RelativeLayout>
+
+    <EditText
+        android:id="@+id/et_phone_number_viber"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toLeftOf="@+id/cancel_viber"
+        android:layout_toRightOf="@+id/rl_country_code_viber"
+        android:background="@android:color/transparent"
+        android:hint="Phone Number"
+        android:inputType="phone"
+        android:paddingBottom="8dp"
+        android:textSize="12sp" />
+
+    <View
+        android:id="@+id/divider_viber_phone"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/et_phone_number_viber"
+        android:layout_toLeftOf="@+id/cancel_viber"
+        android:layout_toRightOf="@+id/rl_country_code_viber"
+        android:background="#808080" />
+
+    <ImageButton
+        android:id="@+id/cancel_viber"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignBottom="@+id/et_phone_number_viber"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="8dp"
+        android:background="@android:color/transparent"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/ic_cancel" />
+
+</RelativeLayout>

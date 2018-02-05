@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">CountryPicker</string>
+    <string name="hint_search">Search</string>
+    <string name="country">Code*</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="Aadhar_id">Adhar_id</string>
+    <string name="Upload_Aadhar_ID">Upload adhar id</string>
+    <string name="school_student">School student</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+</resources>
